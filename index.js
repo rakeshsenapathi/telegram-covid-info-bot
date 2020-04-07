@@ -16,8 +16,15 @@ app.use(
 );
 app.use(json);
 
-bot.on("text", (message) => {
-    bot.sendMessage(message.chat.id, "Hello World");
+bot.on(/\/start/, (message) => {
+    bot.sendMessage(message.chat.id, 'Alternative keybaord layout', {
+        'reply_markup': {
+            'keyboard': [['Sample text', 'Second sample'], ['Keyboard'], ['I\'m robot']],
+            resize_keyboard: true,
+            one_time_keyboard: true,
+            force_reply: true,
+        }
+    });
 });
 
 // Set the listening port.
