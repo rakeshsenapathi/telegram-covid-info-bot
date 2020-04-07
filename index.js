@@ -16,7 +16,7 @@ app.use(
 );
 app.use(json);
 
-bot.on(/\/start/, (message) => {
+bot.on(/\/keyboard/, (message) => {
     bot.sendMessage(message.chat.id, 'Alternative keybaord layout', {
         'reply_markup': {
             'keyboard': [['Sample text', 'Second sample'], ['Keyboard'], ['I\'m robot']],
