@@ -17,13 +17,18 @@ app.use(
 app.use(json);
 
 bot.on("message", (message) => {
-    bot.sendMessage(message.chat.id, 'Hi, INDIA COVID-19 TRACKER - A CROWDSOURCED INITIATIVE'
+    bot.sendMessage(message.chat.id, 'Hi, Welcome to INDIA COVID-19 TRACKER - A CROWDSOURCED INITIATIVE'
         , {
-            'reply_markup': {
-                'keyboard': [['Get Summary'], ['Get State Wise Stats']],
-                resize_keyboard: true,
-                one_time_keyboard: false,
-                force_reply: true,
+            reply_markup: {
+                inline_keyboard: [
+                    {
+                        text: 'Get Summary',
+                        callback_data: 'get_summary'
+                    },
+                    {
+                        text: 'Get State Wise Stats',
+                        callback_data: 'get_state_wise_stats'
+                    }
             }
         });
 });
