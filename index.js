@@ -22,12 +22,10 @@ bot.on("message", (message) => {
             reply_markup: {
                 inline_keyboard: [
                     {
-                        text: 'Get Summary!',
-                        callback_data: 'get_summary'
+                        text: 'Get Summary!'
                     },
                     {
-                        text: 'Get State Wise Stats',
-                        callback_data: 'get_state_wise_stats'
+                        text: 'Get State Wise Stats'
                     }
             }
         });
