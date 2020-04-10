@@ -22,7 +22,7 @@ bot.on("message", (message) => {
             reply_markup: {
                 inline_keyboard: [
                     {
-                        text: 'Get Summary',
+                        text: 'Get Summary!',
                         callback_data: 'get_summary'
                     },
                     {
