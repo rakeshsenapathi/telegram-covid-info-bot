@@ -16,15 +16,16 @@ app.use(
 );
 app.use(json);
 
-bot.onText(/\/start/, (message) => {
-    bot.sendMessage(message.chat.id, 'Alternative keybaord layout', {
-        'reply_markup': {
-            'keyboard': [['Sample text', 'Second sample'], ['Keyboard'], ['I\'m robot']],
-            resize_keyboard: true,
-            one_time_keyboard: true,
-            force_reply: true,
-        }
-    });
+bot.on("message", (message) => {
+    bot.sendMessage(message.chat.id, 'Hi, INDIA COVID-19 TRACKER - A CROWDSOURCED INITIATIVE'
+        , {
+            'reply_markup': {
+                'keyboard': [['Get Summary'], ['Get State Wise Stats']],
+                resize_keyboard: true,
+                one_time_keyboard: false,
+                force_reply: true,
+            }
+        });
 });
 
 // Set the listening port.
