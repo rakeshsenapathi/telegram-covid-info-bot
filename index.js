@@ -38,8 +38,8 @@ bot.on("message", (message) => {
                 ],
                 [
                     {
-                        text: 'GET GLOBAL DATE',
-                        callback_data: TYPES.GET_LATEST_DAILY_STATUS
+                        text: 'GET GLOBAL STATS',
+                        callback_data: TYPES.GET_GLOBAL_DATA
                     }
                 ]]
             }
