@@ -3,34 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 
-// TODO: Implement Global Data 
-const getGlobalData = () => {
-    return new Promise((resolve, reject) => {
-        axios({
-            "method": "GET",
-            "url": "https://covid-19-data.p.rapidapi.com/totals",
-            "headers": {
-                "content-type": "application/octet-stream",
-                "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-                "x-rapidapi-key": `${process.env.RAPID_API_TOKEN}`
-            }, "params": {
-                "format": "undefined"
-            }
-        })
-            .then((response) => {
-                const payload = {
-                    confirmed: response.confirmed,
-                    recovered: response.recovered,
-                    critical: response.critical,
-                    deaths: response.deaths
-                }
-                resolve(payload);
-            })
-            .catch((error) => {
-                reject(error);
-            })
-    });
-};
+// TODO: Implement Global Data
 
 
 const getStats = (data, callback) => {
@@ -76,13 +49,6 @@ const setData = (type) => {
                 .catch(err => reject("Could not fetch Results"));
         });
     }
-    else {
-        return getGlobalData()
-            .then(payload => {
-                return `Confirmed : ${payload.confirmed} \t\n Critical : ${payload.critical} \t\n Recovered : ${payload.recovered} \t\n Deaths : ${payload.deaths} \t\n Type any key to display menu`
-            })
-            .catch(err => "Could not fetch result");
-    }
 };
 
 
@@ -93,8 +59,6 @@ module.exports = delegateApiCall = (category) => {
             return setData(1);
         case types.GET_LATEST_DAILY_STATUS:
             return setData(2);
-        case types.GET_GLOBAL_DATA:
-            return setData(3);
     }
 }
 
